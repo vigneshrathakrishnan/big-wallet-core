@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: big-wallet-postgres
+
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: big_wallet_core
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - /mnt/projects/docker-volumes/big-wallet-postgres:/var/lib/postgresql/data
+
