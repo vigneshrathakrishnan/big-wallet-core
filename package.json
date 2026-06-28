@@ -1,0 +1,14 @@
+{
+  "name": "big-wallet-core",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "mongo:init": "node database/mongo/scripts/init-db.js",
+    "mongo:seed": "node database/mongo/seeds/seed-users.js",
+    "mongo:drop": "node database/mongo/scripts/drop-db.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.0.0",
+    "mongodb": "^6.17.0"
+  }
+}
