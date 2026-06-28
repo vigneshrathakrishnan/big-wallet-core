@@ -2,6 +2,8 @@ services:
   postgres:
     image: postgres:16
     container_name: big-wallet-postgres
+    profiles:
+      - postgres
 
     restart: unless-stopped
 
@@ -16,3 +18,20 @@ services:
     volumes:
       - /mnt/projects/docker-volumes/big-wallet-postgres:/var/lib/postgresql/data
 
+  mongodb:
+    image: mongo:7
+    container_name: big-wallet-mongodb
+    profiles:
+      - mongo
+      
+    restart: unless-stopped
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+
+    ports:
+      - "27017:27017"
+
+    volumes:
+      - /mnt/projects/docker-volumes/big-wallet-mongodb:/data/db
