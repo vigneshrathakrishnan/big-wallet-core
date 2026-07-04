@@ -3,7 +3,7 @@ import { MongoClient } from "mongodb";
 import { createUsersIndexes } from "../indexes/users.index.js";
 import { seedUsers } from "../seeds/seed-users.js";
 
-const client = new MongoClient("mongodb://localhost:27017");
+const client = new MongoClient("mongodb://admin:admin@localhost:27017");
 
 async function initDatabase() {
 
