@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "mongo:init": "node database/mongo/scripts/init-db.js",
-    "mongo:seed": "node database/mongo/seeds/seed-users.js",
+    "mongo:init:users": "node database/mongo/scripts/init-user-db.js",
+    "mongo:init:wallets": "node database/mongo/scripts/init-wallet-db.js",
+    "mongo:init:merchants": "node database/mongo/scripts/init-merchant-db.js",
+    "mongo:init:transactions": "node database/mongo/scripts/init-transaction-db.js",
+
+    "mongo:seed:users": "node database/mongo/seeds/seed-users.js",
     "mongo:drop": "node database/mongo/scripts/drop-db.js"
   },
   "dependencies": {

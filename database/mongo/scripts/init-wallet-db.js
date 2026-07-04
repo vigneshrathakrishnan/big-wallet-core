@@ -1,7 +1,8 @@
 import { MongoClient } from "mongodb";
 
-import { createUsersIndexes } from "../indexes/users.index.js";
-import { seedUsers } from "../seeds/seed-users.js";
+// import { createWalletsIndexes } from "../indexes/wallets.index.js";
+
+import { seedWallets } from "../seeds/seed-wallets.js";
 
 const client = new MongoClient("mongodb://admin:admin@localhost:27017");
 
@@ -13,27 +14,27 @@ async function initDatabase() {
 
         console.log("✓ Connected");
 
-        const db = client.db("wallet");
+        const db = client.db("wallet_core");
 
         /*
          * Create Collection
          */
+        
+        await db.createCollection("wallets");
 
-        await db.createCollection("users");
-
-        console.log("✓ Users collection created");
+        console.log("✓ Wallets collection created");
 
         /*
          * Create Indexes
          */
 
-        await createUsersIndexes(db);
+        // await createUsersIndexes(db);
 
         /*
          * Seed Data
          */
 
-        await seedUsers(db);
+        await seedWallets(db);
 
         console.log("✓ Database initialized");
 
